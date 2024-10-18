@@ -5,10 +5,11 @@ import * as fs from "fs";
 import * as cache from "@actions/cache";
 import * as core from "@actions/core";
 import * as tc from "@actions/tool-cache";
-import { GitHub, getOctokitOptions } from "@actions/github/lib/utils";
+import { getOctokitOptions } from "@actions/github/lib/utils";
 import { throttling } from "@octokit/plugin-throttling";
+import { Octokit } from "@octokit/rest"
 
-const ThrottlingOctokit = GitHub.plugin(throttling);
+const ThrottlingOctokit = Octokit.plugin(throttling)
 
 interface ToolInfo {
     owner: string;
